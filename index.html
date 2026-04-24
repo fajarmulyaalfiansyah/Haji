@@ -3,932 +3,653 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TARDA — Gamis Haji Custom</title>
+<title>TARDA — Gamis Bespoke Premium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ─── RESET ─────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-img{display:block;max-width:100%}
+html{scroll-behavior:smooth}
 
-/* ─── BRAND TOKENS ───────────────────── */
 :root{
-  --gm:  #172333;   /* dark gunmetal  */
-  --wc:  #E6DED3;   /* white coffee   */
-  --bi:  #3B281A;   /* bistre         */
-  --br:  #B0905D;   /* bronze         */
-  --bk:  #111110;   /* chinese black  */
-  --cu:  #F0EAE2;   /* cultured       */
+  --gm:#172333;
+  --wc:#E6DED3;
+  --bi:#3B281A;
+  --br:#B0905D;
+  --bk:#111110;
+  --cu:#F0EAE2;
   --serif:'Bodoni Moda',Georgia,serif;
   --sans:'DM Sans',-apple-system,sans-serif;
 }
 
-html{scroll-behavior:smooth}
 body{background:var(--wc);color:var(--gm);font-family:var(--sans);font-weight:400;line-height:1.7;overflow-x:hidden}
 
-/* ─── PAGES ──────────────────────────── */
-.page{display:none;min-height:100vh}
-.page.active{display:block}
-
-/* ─── REVEAL ─────────────────────────── */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s ease,transform .75s ease}
 .rv.in{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.32s}.d4{transition-delay:.44s}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.34s}.d4{transition-delay:.46s}
 
-/* ─── LAYOUT ─────────────────────────── */
-.w   {max-width:1080px;margin:0 auto;padding:0 40px}
-.wsm {max-width:760px; margin:0 auto;padding:0 40px}
-.wxs {max-width:600px; margin:0 auto;padding:0 40px}
+/* ── LAYOUT ── */
+.w  {max-width:1080px;margin:0 auto;padding:0 40px}
+.wsm{max-width:760px; margin:0 auto;padding:0 40px}
+.wxs{max-width:620px; margin:0 auto;padding:0 40px}
 
-/* ─── TYPE UTILITIES ─────────────────── */
-.eyebrow{display:block;font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--br);margin-bottom:.9rem}
-.rule{width:36px;height:1px;background:var(--br);display:block;margin-bottom:1.5rem}
-.rc{margin:0 auto 1.5rem}
+/* ── SHARED ── */
+.eyebrow{display:block;font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--br);margin-bottom:.9rem;text-align:center}
+.rule{width:36px;height:1px;background:var(--br);display:block;margin:0 auto 1.5rem}
+.sec-h{font-family:var(--serif);font-size:clamp(30px,4.5vw,52px);font-weight:400;line-height:1.12;color:var(--gm);text-align:center}
+.sec-h em{font-style:italic;color:var(--br)}
+.sec-h-lt{color:var(--wc)}
+.sec-h-lt em{color:var(--br)}
 
-/* ─── BUTTONS ────────────────────────── */
-.btn{display:inline-block;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;padding:16px 42px;transition:.25s ease;cursor:pointer;border:none;font-size:11px}
+/* ── BUTTONS ── */
+.btn{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:16px 44px;transition:.25s;cursor:pointer;border:none}
 .btn-br{background:var(--br);color:var(--wc);border:1px solid var(--br)}
 .btn-br:hover{background:var(--bi);border-color:var(--bi)}
 .btn-dk{background:var(--gm);color:var(--wc);border:1px solid var(--gm)}
-.btn-dk:hover{background:var(--bi);border-color:var(--bi)}
+.btn-dk:hover{background:var(--bi)}
 .btn-ol{background:transparent;color:var(--gm);border:1px solid rgba(23,35,51,.35)}
 .btn-ol:hover{border-color:var(--gm)}
-.btn-lg{padding:18px 52px;font-size:12px;width:100%;text-align:center}
 
-/* ─── NAV ────────────────────────────── */
+/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,padding .3s}
-nav.scrolled{background:rgba(23,35,51,.96);backdrop-filter:blur(10px);padding:14px 40px}
-.nav-logo{font-family:var(--serif);font-size:19px;font-weight:400;letter-spacing:.22em;color:var(--wc);text-decoration:none;cursor:pointer}
-.nav-cta{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--wc);text-decoration:none;padding:10px 24px;border:1px solid rgba(230,222,211,.3);transition:.2s;cursor:pointer;background:none;border-radius:0}
+nav.sc{background:rgba(23,35,51,.96);backdrop-filter:blur(10px);padding:14px 40px}
+.nav-logo{font-family:var(--serif);font-size:18px;font-weight:400;letter-spacing:.22em;color:var(--wc);text-decoration:none}
+.nav-cta{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--wc);background:none;border:1px solid rgba(230,222,211,.3);padding:10px 24px;cursor:pointer;transition:.2s}
 .nav-cta:hover{border-color:var(--br);color:var(--br)}
 
 
-/* ════════════════════════════════════════
-   PAGE 1 — SECTIONS
-════════════════════════════════════════ */
-
-/* ── HERO ─── */
+/* ════════════════════════════
+   ① HERO
+════════════════════════════ */
 #hero{
   min-height:100vh;background:var(--gm);
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
   text-align:center;padding:140px 40px 100px;
   position:relative;overflow:hidden;
 }
 .hero-arch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:380px;height:230px;border:1px solid rgba(176,144,93,.18);border-radius:190px 190px 0 0;border-bottom:none;pointer-events:none}
 .hero-arch2{position:absolute;top:0;left:50%;transform:translateX(-50%);width:316px;height:192px;border:1px solid rgba(176,144,93,.1);border-radius:158px 158px 0 0;border-bottom:none;pointer-events:none}
-.hero-kicker{font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--br);margin-bottom:2rem}
-.hero-h1{font-family:var(--serif);font-size:clamp(46px,8vw,92px);font-weight:400;line-height:1.04;letter-spacing:-.02em;color:var(--wc);margin-bottom:.3em}
-.hero-h1 em{font-style:italic;color:var(--br)}
-.hero-rule{width:1px;height:44px;background:linear-gradient(to bottom,var(--br),transparent);margin:0 auto 1.6rem}
-.hero-sub{font-family:var(--serif);font-size:clamp(17px,2.2vw,22px);font-style:italic;color:rgba(230,222,211,.55);max-width:500px;margin:0 auto 2.75rem;line-height:1.65}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(230,222,211,.25);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
-.scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--br),transparent);animation:sp 2.2s ease-in-out infinite}
+
+.hero-overline{font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--br);margin-bottom:1.5rem;display:block}
+.hero-h1{font-family:var(--serif);font-size:clamp(42px,7vw,88px);font-weight:400;line-height:1.06;letter-spacing:-.02em;color:var(--wc);margin-bottom:.75em}
+
+/* sub-headline 3 baris */
+.hero-sub3{margin-bottom:2.5rem}
+.hero-sub3 span{display:block;font-family:var(--serif);font-size:clamp(15px,1.8vw,19px);font-style:italic;color:rgba(230,222,211,.5);line-height:2;letter-spacing:.02em}
+.hero-sub3 span.hi{color:var(--br);font-style:normal;font-weight:400}
+
+.hero-rule{width:1px;height:44px;background:linear-gradient(to bottom,var(--br),transparent);margin:0 auto 2rem}
+
+/* twin stat hero */
+.hero-twin{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(176,144,93,.2);border:1px solid rgba(176,144,93,.2);max-width:480px;margin:0 auto 3rem}
+.ht{background:var(--gm);padding:24px 28px;text-align:center}
+.ht-n{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:400;color:var(--br);line-height:1;margin-bottom:.2rem}
+.ht-l{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(230,222,211,.5)}
+
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(230,222,211,.22);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.scroll-line{width:1px;height:30px;background:linear-gradient(to bottom,var(--br),transparent);animation:sp 2.2s ease-in-out infinite}
 @keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
 
-/* ── INTRO ─── */
-#intro{background:var(--wc);padding:120px 0;text-align:center}
-.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;text-align:left}
-.img-frame{position:relative}
-.img-box{width:100%;padding-bottom:122%;background:var(--cu);border:1px solid rgba(23,35,51,.09);position:relative;overflow:hidden}
-.img-box::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(176,144,93,.04) 30px,rgba(176,144,93,.04) 31px)}
-.img-lbl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(23,35,51,.22)}
-.img-badge{position:absolute;bottom:-16px;right:-16px;width:106px;height:106px;background:var(--gm);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.ib-n{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--br);line-height:1}
-.ib-l{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(230,222,211,.5);margin-top:4px}
 
-/* punchy copy lines */
-.cl{font-family:var(--serif);font-size:clamp(15px,2vw,18px);font-weight:400;color:var(--gm);line-height:2;display:block}
-.cl-em{font-style:italic;color:var(--br)}
-.cl-big{font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);line-height:1.2;display:block;margin:.3em 0}
-.cl-muted{font-family:var(--sans);font-size:14px;font-weight:300;color:rgba(23,35,51,.55);line-height:1.85;display:block}
+/* ════════════════════════════
+   ② USP
+════════════════════════════ */
+#usp{background:var(--wc);padding:120px 0;text-align:center}
 
-/* ── SOLUTION ─── */
-#solution{background:var(--gm);padding:110px 0;text-align:center}
-.sol-big{font-family:var(--serif);font-size:clamp(36px,5.5vw,62px);font-weight:400;line-height:1.1;color:var(--wc);margin-bottom:1rem}
-.sol-big em{font-style:italic;color:var(--br)}
-.sol-sub{font-family:var(--serif);font-size:18px;font-style:italic;color:rgba(230,222,211,.45);max-width:520px;margin:0 auto 4rem;line-height:1.65}
-.sol-steps{display:flex;flex-direction:column;gap:0;max-width:560px;margin:0 auto;text-align:center}
-.sol-step{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid rgba(176,144,93,.12)}
-.sol-step:last-child{border:none}
-.ss-n{font-family:var(--serif);font-size:clamp(36px,5vw,52px);font-weight:400;color:rgba(176,144,93,.18);line-height:1;flex-shrink:0;min-width:50px;transition:color .3s}
-.sol-step:hover .ss-n{color:rgba(176,144,93,.5)}
-.ss-txt{display:flex;flex-direction:column;gap:3px}
-.ss-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--wc)}
-.ss-desc{font-size:13px;color:rgba(230,222,211,.4);line-height:1.7}
-.sol-closer{font-family:var(--serif);font-size:clamp(18px,2.5vw,26px);font-style:italic;font-weight:400;color:var(--br);margin-top:3.5rem;text-align:center}
+.usp-body-copy{font-family:var(--serif);font-size:clamp(15px,2vw,18px);font-style:italic;color:rgba(23,35,51,.5);max-width:540px;margin:0 auto 3.5rem;line-height:1.75}
 
-/* ── BESPOKE INFO / FITTING ─── */
-#fitting{background:var(--wc);padding:120px 0;text-align:center}
-.fitting-header{text-align:center;margin-bottom:4rem}
-.fitting-title{font-family:var(--serif);font-size:clamp(30px,4.5vw,52px);font-weight:400;color:var(--gm);line-height:1.15;margin-bottom:.5rem}
-.fitting-title em{font-style:italic;color:var(--br)}
+.usp-list{display:flex;flex-direction:column;gap:0;max-width:560px;margin:0 auto}
+.usp-item{display:flex;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid rgba(23,35,51,.1);text-align:left;cursor:default;transition:padding-left .25s}
+.usp-item:hover{padding-left:8px}
+.usp-item:first-child{border-top:1px solid rgba(23,35,51,.1)}
+.ui-num{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:400;color:rgba(176,144,93,.2);line-height:1;flex-shrink:0;min-width:52px;transition:color .3s}
+.usp-item:hover .ui-num{color:rgba(176,144,93,.5)}
+.ui-title{font-family:var(--serif);font-size:clamp(18px,2.2vw,24px);font-weight:400;color:var(--gm);margin-bottom:.2rem}
+.ui-body{font-size:13px;color:rgba(23,35,51,.45);line-height:1.7}
 
-.fitting-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(23,35,51,.1);border:1px solid rgba(23,35,51,.1);margin-bottom:4rem}
-.fc{background:var(--wc);padding:36px 28px;text-align:center;position:relative;overflow:hidden;transition:background .3s}
+
+/* ════════════════════════════
+   ③ BESPOKE INFO
+════════════════════════════ */
+#bespoke{background:var(--bistre, #3B281A);background:var(--bi);padding:120px 0;text-align:center}
+
+.fitting-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(176,144,93,.15);border:1px solid rgba(176,144,93,.15);margin:3rem 0}
+.fc{background:var(--bi);padding:36px 28px;text-align:center;position:relative;overflow:hidden;transition:background .3s}
 .fc::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--br);transition:width .4s}
-.fc:hover{background:var(--cu)}
+.fc:hover{background:rgba(176,144,93,.06)}
 .fc:hover::before{width:100%}
-.fc-icon{font-family:var(--serif);font-size:28px;color:var(--br);margin-bottom:1rem;line-height:1}
-.fc-title{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--gm);margin-bottom:.6rem}
-.fc-body{font-size:13px;color:rgba(23,35,51,.55);line-height:1.75}
+.fc-icon{font-family:var(--serif);font-size:22px;color:var(--br);margin-bottom:.75rem}
+.fc-title{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--wc);margin-bottom:.5rem}
+.fc-body{font-size:12.5px;color:rgba(230,222,211,.45);line-height:1.75}
 
-/* quality pillars */
-.quality-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(23,35,51,.1);border:1px solid rgba(23,35,51,.1);margin-top:3rem}
-.qc{background:var(--wc);padding:30px 28px;display:flex;gap:16px;align-items:flex-start;transition:background .3s;justify-content:center;text-align:center;flex-direction:column;align-items:center}
-.qc:hover{background:var(--cu)}
-.qc-mark{color:var(--br);font-size:16px;flex-shrink:0;margin-top:2px}
-.qc-t{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gm);margin-bottom:4px}
-.qc-b{font-size:13px;color:rgba(23,35,51,.55);line-height:1.7}
+/* alur online fitting */
+.fitting-flow{max-width:560px;margin:0 auto 2.5rem;text-align:center}
+.ff-arrow{font-size:13px;color:rgba(230,222,211,.4);margin:0 6px}
+.ff-step{font-family:var(--serif);font-size:14px;font-style:italic;color:rgba(230,222,211,.6)}
 
-/* ── SOCIAL PROOF ─── */
-#proof{background:var(--bi);padding:110px 0;text-align:center}
-.proof-title{font-family:var(--serif);font-size:clamp(28px,4vw,46px);font-weight:400;color:var(--wc);margin-bottom:.5rem}
-.proof-title em{font-style:italic;color:var(--br)}
-.proof-sub{font-family:var(--serif);font-size:17px;font-style:italic;color:rgba(230,222,211,.45);margin-bottom:3.5rem;line-height:1.6}
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:2.5rem}
-.pg{background:rgba(230,222,211,.05);border:1px solid rgba(176,144,93,.18);padding-bottom:120%;position:relative;transition:border-color .3s}
-.pg:hover{border-color:rgba(176,144,93,.4)}
-.pg-in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
-.pg-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(176,144,93,.5)}
-.proof-more{font-family:var(--serif);font-size:15px;font-style:italic;color:rgba(230,222,211,.35)}
+.trust-pair{display:flex;gap:1px;background:rgba(176,144,93,.12);border:1px solid rgba(176,144,93,.12);margin-bottom:3rem}
+.tp{flex:1;background:var(--bi);padding:24px 22px;text-align:center}
+.tp-icon{color:var(--br);font-size:14px;margin-bottom:.5rem}
+.tp-t{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--wc);margin-bottom:.3rem}
+.tp-b{font-size:12px;color:rgba(230,222,211,.4);line-height:1.6}
 
-/* ── BESPOKE DETAIL / CUSTOMIZATION ─── */
-#custom{background:var(--wc);padding:120px 0;text-align:center}
-.custom-header{margin-bottom:4rem;text-align:center}
-.custom-title{font-family:var(--serif);font-size:clamp(30px,4vw,50px);font-weight:400;color:var(--gm);line-height:1.15}
-.custom-title em{font-style:italic;color:var(--br)}
 
-/* custom option groups */
-.custom-options{display:flex;flex-direction:column;gap:32px}
-.co{border-top:1px solid rgba(23,35,51,.1);padding-top:28px}
-.co-label{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--br);margin-bottom:1rem;text-align:center}
-.co-title{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);font-weight:400;color:var(--gm);margin-bottom:.4rem;text-align:center}
-.co-sub{font-size:13px;color:rgba(23,35,51,.45);font-style:italic;margin-bottom:1.25rem;text-align:center}
-.co-swatches{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.swatch{width:40px;height:40px;border:1px solid rgba(23,35,51,.12);position:relative;cursor:pointer;transition:border-color .2s;flex-shrink:0}
-.swatch:hover{border-color:var(--br)}
-.swatch.ph{background:repeating-linear-gradient(45deg,var(--cu),var(--cu) 4px,rgba(23,35,51,.06) 4px,rgba(23,35,51,.06) 8px)}
-.swatch.g1{background:#F5F1EB}.swatch.g2{background:#E8E0D4}.swatch.g3{background:#D4C9B8}
-.swatch.g4{background:#3B281A}.swatch.g5{background:#172333}.swatch.g6{background:#2C3E50}
-.swatch.g7{background:#8B7355}.swatch.g8{background:#C9A96E}.swatch.g9{background:#D2B48C}
-.swatch.more{background:var(--cu);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.08em;color:rgba(23,35,51,.4);width:auto;padding:0 14px;font-family:var(--sans)}
-.option-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.op{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gm);border:1px solid rgba(23,35,51,.2);padding:9px 16px;cursor:pointer;transition:background .2s,border-color .2s}
-.op:hover,.op.active{background:var(--gm);color:var(--wc);border-color:var(--gm)}
+/* ════════════════════════════
+   ④ TESTIMONI
+════════════════════════════ */
+#testimoni{background:var(--wc);padding:120px 0;text-align:center}
 
-.twin-stat{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(23,35,51,.12);border:1px solid rgba(23,35,51,.1);margin-top:3rem;text-align:center}
-.ts{background:var(--wc);padding:36px 28px}
-.ts-alt{background:var(--cu)}
-.ts-n{font-family:var(--serif);font-size:clamp(36px,5vw,56px);font-weight:400;color:var(--br);line-height:1;margin-bottom:.3rem}
-.ts-l{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gm)}
-.ts-sub{font-size:12px;font-style:italic;color:rgba(23,35,51,.4);margin-top:.4rem;font-family:var(--serif)}
+.testi-wrap{position:relative;overflow:hidden;margin:3rem 0 1.5rem}
+.testi-track{display:flex;transition:transform .45s ease}
+.testi-slide{min-width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tc{background:var(--cu);border:1px solid rgba(23,35,51,.08);padding:32px 28px;text-align:left;position:relative;transition:transform .3s,border-color .3s}
+.tc:hover{transform:translateY(-4px);border-color:rgba(176,144,93,.38)}
+.tc-bar{position:absolute;top:0;left:28px;width:24px;height:2px;background:var(--br)}
+.tc-stars{display:flex;gap:3px;margin-bottom:1rem}
+.tc-stars span{color:var(--br);font-size:11px}
+.tc-q{font-family:var(--serif);font-size:15.5px;font-style:italic;color:var(--gm);line-height:1.65;margin-bottom:1.25rem}
+.tc-name{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gm)}
+.tc-loc{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--br)}
 
-.fab{background:var(--cu);border:1px solid rgba(23,35,51,.1);padding:16px 12px;text-align:center;cursor:pointer;transition:border-color .2s}
+.slider-dots{display:flex;gap:8px;justify-content:center}
+.sd{width:22px;height:3px;background:rgba(23,35,51,.15);cursor:pointer;transition:background .2s}
+.sd.on{background:var(--br)}
+
+
+/* ════════════════════════════
+   ⑤ BESPOKE DETAIL
+════════════════════════════ */
+#detail{background:var(--gm);padding:120px 0;text-align:center}
+
+.detail-intro{font-family:var(--serif);font-size:clamp(14px,1.8vw,17px);font-style:italic;color:rgba(230,222,211,.4);max-width:480px;margin:0 auto 3.5rem;line-height:1.85}
+
+.detail-options{display:flex;flex-direction:column;gap:36px;max-width:740px;margin:0 auto}
+.do{border-top:1px solid rgba(176,144,93,.15);padding-top:28px}
+.do-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--br);margin-bottom:.6rem}
+.do-title{font-family:var(--serif);font-size:clamp(20px,2.5vw,26px);font-weight:400;color:var(--wc);margin-bottom:.3rem}
+.do-sub{font-size:12.5px;color:rgba(230,222,211,.35);font-style:italic;margin-bottom:1.25rem}
+
+.swatches{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.sw{width:36px;height:36px;border:1px solid rgba(176,144,93,.15);cursor:pointer;transition:border-color .2s;flex-shrink:0}
+.sw:hover{border-color:var(--br)}
+.sw-more{background:rgba(230,222,211,.06);display:flex;align-items:center;justify-content:center;font-size:10px;color:rgba(230,222,211,.35);width:auto;padding:0 14px;font-family:var(--sans);letter-spacing:.08em}
+
+.pills{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.pill{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(230,222,211,.6);border:1px solid rgba(176,144,93,.2);padding:9px 16px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.pill:hover,.pill.on{background:var(--br);color:var(--wc);border-color:var(--br)}
+
+.fab-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.fab{background:rgba(230,222,211,.04);border:1px solid rgba(176,144,93,.15);padding:14px;text-align:center;cursor:pointer;transition:border-color .2s;min-width:88px}
 .fab:hover{border-color:var(--br)}
-.fab-swatch{width:100%;padding-bottom:70%;background:var(--wc);margin-bottom:10px;border:1px solid rgba(23,35,51,.08)}
-.fab-name{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gm);line-height:1.4}
-
-/* two-col layout for custom + stats */
-.custom-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
-.stat-cards{display:flex;flex-direction:column;gap:24px;position:sticky;top:100px}
-.stat-card{border:1px solid rgba(23,35,51,.1);padding:32px;background:var(--cu);text-align:center}
-.stat-n{font-family:var(--serif);font-size:48px;font-weight:400;color:var(--br);line-height:1;margin-bottom:.3rem}
-.stat-l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,35,51,.5);margin-bottom:.5rem}
-.stat-b{font-size:12px;font-style:italic;color:rgba(23,35,51,.4);font-family:var(--serif)}
-
-/* ── PRICING ─── */
-#pricing{background:var(--gm);padding:100px 0;text-align:center}
-.pricing-kicker{font-family:var(--serif);font-size:clamp(16px,2vw,20px);font-style:italic;color:rgba(230,222,211,.4);margin-bottom:.5rem}
-.pricing-amount{font-family:var(--serif);font-size:clamp(48px,7vw,80px);font-weight:400;color:var(--wc);line-height:1;margin-bottom:.3rem}
-.pricing-amount span{color:var(--br)}
-.pricing-note{font-size:13px;color:rgba(230,222,211,.35);letter-spacing:.08em;margin-bottom:3rem}
-
-.value-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:3rem}
-.vp{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(230,222,211,.6);border:1px solid rgba(176,144,93,.25);padding:10px 20px}
-
-/* ── URGENCY ─── */
-#urgency{background:var(--bi);padding:100px 0;text-align:center}
-.urg-inner{max-width:700px;margin:0 auto;text-align:center;border:1px solid rgba(176,144,93,.28);padding:64px 72px;position:relative}
-.urg-inner::before,.urg-inner::after{content:'';position:absolute;width:16px;height:16px;border-color:var(--br);border-style:solid}
-.urg-inner::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
-.urg-inner::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
-.ucr-tr,.ucr-bl{position:absolute;width:16px;height:16px;border-color:var(--br);border-style:solid}
-.ucr-tr{top:-1px;right:-1px;border-width:2px 2px 0 0}
-.ucr-bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
-
-.urg-tag{font-size:10px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--br);margin-bottom:1.5rem;display:block}
-.urg-h{font-family:var(--serif);font-size:clamp(26px,4vw,42px);font-weight:400;color:var(--wc);line-height:1.2;margin-bottom:1.25rem}
-.urg-h em{font-style:italic;color:var(--br)}
-
-.urg-contrast{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(176,144,93,.15);border:1px solid rgba(176,144,93,.15);margin:2rem 0;text-align:left}
-.uc-cell{background:rgba(23,40,26,.04);padding:20px 22px}
-.uc-cell.yes{background:rgba(176,144,93,.06)}
-.uc-head{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(230,222,211,.4);margin-bottom:.75rem}
-.uc-body{font-size:14px;color:var(--wc);line-height:1.6;font-family:var(--serif);font-style:italic}
-
-/* slot meter */
-.slot-row{display:flex;gap:7px;justify-content:center;margin:1.5rem 0 .75rem;flex-wrap:wrap}
-.slot{width:26px;height:6px;background:rgba(230,222,211,.08)}
-.slot.on{background:var(--br)}
-.slot.dim{background:rgba(176,144,93,.38)}
-.slot-cap{font-size:11px;color:rgba(230,222,211,.35);letter-spacing:.1em;margin-bottom:2rem}
-.slot-cap strong{color:var(--br)}
+.fab-sw{width:100%;padding-bottom:60%;background:rgba(230,222,211,.08);margin-bottom:8px;border:1px solid rgba(176,144,93,.1)}
+.fab-nm{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(230,222,211,.4)}
 
 
-/* ════════════════════════════════════════
-   PAGE 2 — CHECKOUT FORM
-════════════════════════════════════════ */
-#page2{background:var(--wc)}
-.co-nav{background:var(--gm);padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
-.co-nav-logo{font-family:var(--serif);font-size:17px;letter-spacing:.22em;color:var(--wc);font-weight:400;cursor:pointer}
-.co-nav-back{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(230,222,211,.5);cursor:pointer;background:none;border:none;transition:color .2s}
-.co-nav-back:hover{color:var(--br)}
+/* ════════════════════════════
+   ⑥ PRICING
+════════════════════════════ */
+#pricing{background:var(--wc);padding:100px 0;text-align:center}
+.price-from{font-family:var(--serif);font-size:clamp(16px,2vw,20px);font-style:italic;color:rgba(23,35,51,.35);margin-bottom:.3rem}
+.price-amount{font-family:var(--serif);font-size:clamp(48px,7vw,80px);font-weight:400;color:var(--gm);line-height:1;margin-bottom:3rem}
+.price-amount span{color:var(--br)}
 
-.co-layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 56px)}
-
-/* left panel */
-.co-left{background:var(--gm);padding:60px 52px;display:flex;flex-direction:column;justify-content:space-between;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto}
-.co-visual{flex:1;background:rgba(230,222,211,.04);border:1px solid rgba(176,144,93,.18);margin-bottom:36px;position:relative;min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.co-visual::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(176,144,93,.03) 40px,rgba(176,144,93,.03) 41px)}
-.co-visual-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(176,144,93,.3);text-align:center}
-
-.co-benefits{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.co-benefit{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:rgba(230,222,211,.7);line-height:1.55}
-.co-benefit .ck{color:var(--br);flex-shrink:0;margin-top:2px;font-size:13px}
-.co-benefit .warn{color:rgba(230,130,60,.9);flex-shrink:0;margin-top:2px}
-
-.co-tagline{font-family:var(--serif);font-size:clamp(16px,1.8vw,20px);font-style:italic;font-weight:400;color:var(--br);border-top:1px solid rgba(176,144,93,.18);padding-top:20px;line-height:1.5}
-
-/* right panel — form */
-.co-right{padding:60px 52px;background:var(--wc)}
-.form-title{font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:400;color:var(--gm);margin-bottom:.4rem;line-height:1.2}
-.form-title em{font-style:italic;color:var(--br)}
-.form-sub{font-size:14px;color:rgba(23,35,51,.5);margin-bottom:2.5rem;line-height:1.6}
-
-.form-group{margin-bottom:1.5rem}
-.form-label{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gm);margin-bottom:.6rem;display:block}
-.form-input{width:100%;padding:14px 16px;border:1px solid rgba(23,35,51,.2);background:var(--cu);font-family:var(--sans);font-size:14px;color:var(--gm);outline:none;transition:border-color .2s;border-radius:0;-webkit-appearance:none}
-.form-input:focus{border-color:var(--br)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-select{width:100%;padding:14px 16px;border:1px solid rgba(23,35,51,.2);background:var(--cu);font-family:var(--sans);font-size:14px;color:var(--gm);outline:none;transition:border-color .2s;border-radius:0;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B0905D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
-.form-select:focus{border-color:var(--br)}
-
-/* photo upload */
-.upload-area{width:100%;border:1px dashed rgba(23,35,51,.25);background:var(--cu);padding:32px 20px;text-align:center;cursor:pointer;transition:border-color .3s;position:relative}
-.upload-area:hover{border-color:var(--br)}
-.upload-icon{font-family:var(--serif);font-size:28px;color:var(--br);margin-bottom:.5rem}
-.upload-title{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gm);margin-bottom:.3rem}
-.upload-sub{font-size:11px;color:rgba(23,35,51,.4)}
-.upload-input{position:absolute;inset:0;opacity:0;cursor:pointer}
-
-.form-note{font-size:12px;color:rgba(23,35,51,.4);line-height:1.6;margin-bottom:2rem;padding:14px 16px;border-left:2px solid var(--br);background:rgba(176,144,93,.05)}
-
-.form-divider{height:1px;background:rgba(23,35,51,.1);margin:2rem 0}
-
-/* fitting method */
-.fitting-options{display:flex;flex-direction:column;gap:10px;margin-top:.75rem}
-.fo{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid rgba(23,35,51,.15);cursor:pointer;transition:border-color .2s,background .2s;position:relative}
-.fo:hover,.fo.active{border-color:var(--br);background:rgba(176,144,93,.05)}
-.fo input[type=radio]{position:absolute;opacity:0;pointer-events:none}
-.fo-dot{width:16px;height:16px;border:1.5px solid rgba(23,35,51,.3);border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
-.fo.active .fo-dot{border-color:var(--br)}
-.fo.active .fo-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--br)}
-.fo-t{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gm);margin-bottom:3px}
-.fo-b{font-size:12px;color:rgba(23,35,51,.5);line-height:1.55}
+.price-usp{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:3rem}
+.pu{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(23,35,51,.45);display:flex;align-items:center;gap:8px}
+.pu::before{content:'✦';color:var(--br);font-size:10px}
 
 
-/* ─── FOOTER ─────────────────────────── */
-footer{background:var(--bk);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* ════════════════════════════
+   ⑦ SCARCITY + CTA
+════════════════════════════ */
+#cta{background:var(--bi);padding:110px 0;text-align:center}
+
+.cta-headline{font-family:var(--serif);font-size:clamp(24px,3.5vw,40px);font-weight:400;color:var(--wc);line-height:1.25;margin-bottom:1rem}
+.cta-headline em{font-style:italic;color:var(--br)}
+
+.cta-body{font-size:14px;color:rgba(230,222,211,.45);max-width:500px;margin:0 auto 2.5rem;line-height:1.85}
+
+/* scarcity bar */
+.sc-wrap{max-width:560px;margin:0 auto 3rem}
+.sc-labels{display:flex;justify-content:space-between;margin-bottom:.6rem}
+.sc-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(230,222,211,.3)}
+.sc-lbl.hi{color:var(--br)}
+.sc-track{width:100%;height:8px;background:rgba(230,222,211,.07);position:relative;overflow:hidden}
+.sc-fill{height:100%;background:linear-gradient(to right,var(--br),#8B6A3A);width:78%;position:relative}
+.sc-fill::after{content:'';position:absolute;right:0;top:-3px;width:2px;height:14px;background:var(--wc);opacity:.6}
+
+.cta-note{font-size:11px;color:rgba(230,222,211,.25);letter-spacing:.07em;margin-top:1.25rem}
+
+/* FOOTER */
+footer{background:var(--bk);background:var(--bk, #111110);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer{background:#111110}
 .ft-brand{font-family:var(--serif);font-size:17px;letter-spacing:.22em;color:var(--wc)}
 .ft-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(230,222,211,.25)}
 .ft-r{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--br)}
 
-/* ─── RESPONSIVE ─────────────────────── */
-@media(max-width:900px){
-  .intro-grid,.fitting-cards,.proof-grid,.custom-grid,.co-layout{grid-template-columns:1fr}
-  .fabric-grid{grid-template-columns:repeat(3,1fr)}
-  .fitting-cards{gap:1px}
-  .co-left{position:static;height:auto}
-  .urg-inner{padding:44px 28px}
-  .urg-contrast{grid-template-columns:1fr}
-  .stat-cards{position:static}
-  .quality-grid{grid-template-columns:1fr}
-}
-@media(max-width:640px){
+/* RESPONSIVE */
+@media(max-width:860px){
+  .fitting-cards,.testi-slide,.trust-pair{grid-template-columns:1fr}
   .w,.wsm,.wxs{padding:0 20px}
-  nav,footer,.co-nav,.co-left,.co-right{padding-left:20px;padding-right:20px}
-  .form-row{grid-template-columns:1fr}
-  .hero-btns{flex-direction:column;align-items:center}
-  .value-pills{flex-direction:column;align-items:center}
+  nav{padding:16px 20px}
+  .hero-twin{max-width:100%}
+  footer{flex-direction:column;text-align:center}
+}
+@media(max-width:580px){
+  .hero-twin{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════ NAV ══════════════ -->
+<!-- NAV -->
 <nav id="nb">
-  <span class="nav-logo" onclick="goPage1()">TARDA</span>
-  <button class="nav-cta" onclick="goCheckout()">Booking Sekarang</button>
+  <span class="nav-logo">TARDA</span>
+  <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Konsultasi Gratis</button>
 </nav>
 
 
-<!-- ══════════════════════════════════════════════
-     PAGE 1 — HALAMAN UTAMA
-══════════════════════════════════════════════ -->
-<div id="page1" class="page active">
-
-<!-- ① HERO / HEADLINE -->
+<!-- ════════════════════════════
+     ① HERO
+════════════════════════════ -->
 <section id="hero">
   <div class="hero-arch"></div>
   <div class="hero-arch2"></div>
 
+  <span class="hero-overline rv">Tarda Tailor</span>
+
   <div class="rv d1">
     <h1 class="hero-h1">
-      Musim Haji Semakin Dekat.<br>
-      <em>Ini Gamis yang Akan Membuat Anda Benar-benar Percaya Diri di Tanah Suci.</em>
+      Gamis Custom<br>Sesuai Postur Anda.
     </h1>
-    <div class="hero-rule"></div>
+    <div class="hero-sub3">
+      <span class="hi">Dirancang dengan presisi.</span>
+      <span>Terinspirasi dari gaya Saudi.</span>
+      <span>Disesuaikan untuk orang Indonesia.</span>
+    </div>
+  </div>
+
+  <div class="hero-rule rv d2"></div>
+
+  <div class="hero-twin rv d2">
+    <div class="ht">
+      <div class="ht-n">10</div>
+      <div class="ht-l">Hari Garansi Jadi</div>
+    </div>
+    <div class="ht" style="background:rgba(176,144,93,.06)">
+      <div class="ht-n" style="font-size:clamp(16px,2vw,20px);padding-top:.5rem;font-style:italic">Detail Presisi,</div>
+      <div class="ht-l">Seleramu Sendiri.</div>
+    </div>
   </div>
 
   <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
 
 
-<!-- ② SOLUSI -->
-<section id="solution">
-  <div class="wxs">
-
+<!-- ════════════════════════════
+     ② USP
+════════════════════════════ -->
+<section id="usp">
+  <div class="w">
     <div class="rv" style="text-align:center;margin-bottom:3rem">
-      <span class="eyebrow" style="text-align:center">Kenalin, Tarda.</span>
-      <div class="rule rc"></div>
-      <h2 class="sol-big">Kami Buat Gamis Haji Anda,<br><em>Dengan Gaya Anda Sendiri.</em></h2>
+      <span class="eyebrow">Mengapa Tarda</span>
+      <div class="rule"></div>
+      <h2 class="sec-h">Setiap Gamis Tarda Dibuat<br><em>Satu per Satu.</em></h2>
     </div>
 
-    <div class="sol-steps rv d1">
-      <div class="sol-step">
-        <div class="ss-txt" style="padding-left:8px">
-          <span class="ss-title">Di Ukur</span>
+    <p class="usp-body-copy rv d1">
+      Dikerjakan oleh satu penjahit dari awal hingga akhir —
+      sehingga setiap detail terjaga, presisi, dan berkualitas tinggi.
+      Tidak diproduksi massal.
+    </p>
+
+    <div class="usp-list rv d2">
+      <div class="usp-item">
+        <div class="ui-num">01</div>
+        <div>
+          <div class="ui-title">Eksklusif, hanya untuk Anda.</div>
+          <div class="ui-body">Satu gamis dibuat untuk satu pemilik — tidak ada yang persis sama.</div>
         </div>
       </div>
-      <div class="sol-step">
-        <div class="ss-txt" style="padding-left:8px">
-          <span class="ss-title">Di Potong</span>
+      <div class="usp-item">
+        <div class="ui-num">02</div>
+        <div>
+          <div class="ui-title">Bebas pilih, sesuai selera Anda.</div>
+          <div class="ui-body">Bahan, warna, kerah, kantong, kancing — semua sesuai keinginan Anda.</div>
         </div>
       </div>
-      <div class="sol-step">
-        <div class="ss-txt" style="padding-left:8px">
-          <span class="ss-title">Di Jahit</span>
+      <div class="usp-item">
+        <div class="ui-num">03</div>
+        <div>
+          <div class="ui-title">Kualitas terbaik, standar butik.</div>
+          <div class="ui-body">Material terkurasi, jahitan presisi, hasil yang layak dipakai di momen apapun.</div>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="ui-num">04</div>
+        <div>
+          <div class="ui-title">Dijamin fit, gratis revisi.</div>
+          <div class="ui-body">Belum sempurna? Kami revisi sampai benar-benar pas — tanpa biaya tambahan.</div>
+        </div>
+      </div>
+      <div class="usp-item">
+        <div class="ui-num">05</div>
+        <div>
+          <div class="ui-title">Sepadan dengan setiap rupiahnya.</div>
+          <div class="ui-body">Investasi sekali untuk gamis yang benar-benar milik Anda sepenuhnya.</div>
         </div>
       </div>
     </div>
-
-    <p class="sol-closer rv d2">Satu per satu.<br>Bukan gamis ukuran semua orang.</p>
 
   </div>
 </section>
 
 
-<!-- ④ BESPOKE INFO / FITTING -->
-<section id="fitting">
+<!-- ════════════════════════════
+     ③ BESPOKE INFO
+════════════════════════════ -->
+<section id="bespoke">
   <div class="w">
-
-    <div class="fitting-header rv">
+    <div class="rv" style="text-align:center;margin-bottom:3rem">
+      <span class="eyebrow" style="color:var(--br)">Cara Fitting</span>
       <div class="rule"></div>
-      <h2 class="fitting-title">Ibadah Khusyuk,<br><em>Penampilan Terjaga.</em></h2>
-      <p style="font-size:14px;color:rgba(23,35,51,.5);margin-top:.5rem;max-width:540px">
-        Fitting sesuai waktu dan lokasi Anda.
-      </p>
+      <h2 class="sec-h sec-h-lt">Fitting Sesuai Waktu<br><em>dan Lokasi Anda.</em></h2>
     </div>
 
     <div class="fitting-cards rv d1">
       <div class="fc">
         <div class="fc-icon">◱</div>
-        <div class="fc-title">Online Fitting</div>
-        <div class="fc-body">Kirim info TB & BB → Foto postur Anda → Live Sizing via Video Call. Dari mana pun Anda berada.</div>
+        <div class="fc-title">Daring</div>
+        <div class="fc-body">Kirim info TB & BB → Foto postur → Pengukuran langsung via Video. Dari mana pun Anda berada.</div>
       </div>
       <div class="fc">
         <div class="fc-icon">◈</div>
-        <div class="fc-title">Home Service</div>
-        <div class="fc-body">Tim Fitter kami datang langsung ke rumah Anda. Nyaman, tanpa perlu kemana-mana.</div>
+        <div class="fc-title">Ke Rumah Anda</div>
+        <div class="fc-body">Tim fitter kami datang langsung ke rumah Anda. Nyaman, tanpa perlu ke mana-mana.</div>
       </div>
       <div class="fc">
         <div class="fc-icon">◇</div>
-        <div class="fc-title">Offline Fitting</div>
-        <div class="fc-body">Kunjungi workshop Tarda langsung. Rasakan sendiri pengalaman fitting premium kami.</div>
+        <div class="fc-title">Workshop Tarda</div>
+        <div class="fc-body">Kunjungi langsung workshop kami. Rasakan pengalaman fitting premium secara langsung.</div>
       </div>
     </div>
 
-    <div class="quality-grid rv d2">
-      <div class="qc">
-        <span class="qc-mark">✦</span>
-        <div>
-          <div class="qc-t">Fitter & Penjahit Spesialis Gamis</div>
-          <div class="qc-b">Dari pengukuran hingga jahitan terakhir — dikerjakan oleh tim yang memang spesialis di satu bidang ini.</div>
-        </div>
-      </div>
-      <div class="qc">
-        <span class="qc-mark">✦</span>
-        <div>
-          <div class="qc-t">Craftsmanship & Detail</div>
-          <div class="qc-b">Setiap jahitan, setiap detail kecil diperhatikan. Itulah standar yang kami pertahankan di setiap gamis.</div>
-        </div>
-      </div>
-      <div class="qc" style="grid-column:1/-1">
-        <span class="qc-mark">✦</span>
-        <div>
-          <div class="qc-t">Gratis Revisi Sampai Fit</div>
-          <div class="qc-b">Kurang puas dengan hasilnya? Kami revisi sampai benar-benar fit — tanpa biaya tambahan.</div>
-        </div>
+    <!-- alur daring -->
+    <div class="fitting-flow rv d1">
+      <p style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(230,222,211,.3);margin-bottom:1rem">Alur Fitting Daring</p>
+      <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px">
+        <span class="ff-step">Kirim TB & BB</span>
+        <span class="ff-arrow">→</span>
+        <span class="ff-step">Foto Postur</span>
+        <span class="ff-arrow">→</span>
+        <span class="ff-step">Pengukuran via Video</span>
+        <span class="ff-arrow">→</span>
+        <span class="ff-step">Proses Produksi</span>
       </div>
     </div>
 
-    <div class="twin-stat rv d3">
-      <div class="ts">
-        <div class="ts-n">14</div>
-        <div class="ts-l">Hari Garansi Jadi</div>
-        <div class="ts-sub">Produksi tepat waktu</div>
+    <div class="trust-pair rv d2">
+      <div class="tp">
+        <div class="tp-icon">✦</div>
+        <div class="tp-t">Dipandu Penjahit & Fitter Profesional</div>
+        <div class="tp-b">Dari pengukuran hingga jahitan terakhir — dikerjakan oleh tim spesialis gamis.</div>
       </div>
-      <div class="ts ts-alt">
-        <div class="ts-n" style="font-size:clamp(18px,2.5vw,26px);padding-top:.6rem">Gamis Siap</div>
-        <div class="ts-l">Sebelum Keberangkatan</div>
+      <div class="tp">
+        <div class="tp-icon">◈</div>
+        <div class="tp-t">Garansi sampai Anda Puas</div>
+        <div class="tp-b">Tidak ada yang diserahkan sebelum benar-benar fit dan sesuai keinginan Anda.</div>
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<!-- ⑤ SOCIAL PROOF -->
-<section id="proof">
-  <div class="w">
-    <div style="text-align:center" class="rv">
-      <div class="rule rc"></div>
-      <h2 class="proof-title">Mereka Sudah Memakainya<br><em>ke Tanah Suci.</em></h2>
-      <p class="proof-sub">Ini sebagian dari mereka yang sudah memakai Tarda.</p>
-    </div>
-
-    <div class="proof-grid rv d1">
-      <div class="pg"><div class="pg-in"><span class="pg-lbl">[ Foto Klien 1 ]</span></div></div>
-      <div class="pg"><div class="pg-in"><span class="pg-lbl">[ Foto Klien 2 ]</span></div></div>
-      <div class="pg"><div class="pg-in"><span class="pg-lbl">[ Foto Klien 3 ]</span></div></div>
-    </div>
-
-    <p class="proof-more rv d2" style="margin-top:1.5rem">Dan masih banyak lainnya…</p>
-
-  </div>
-</section>
-
-
-<!-- ⑥ BESPOKE DETAIL / KUSTOMISASI -->
-<section id="custom">
-  <div class="w">
-    <div class="custom-grid">
-
-      <div>
-        <div class="custom-header rv">
-          <span class="eyebrow">Pilihan Anda</span>
-          <div class="rule"></div>
-          <h2 class="custom-title">Buat Gamis Anda Sendiri.</h2>
-          <p style="font-size:14px;color:rgba(23,35,51,.5);margin-top:.75rem">Pilih bahan, warna, dan setiap detail — sesuai yang Anda bayangkan.</p>
-        </div>
-
-        <div class="custom-options">
-
-          <!-- Fabric -->
-          <div class="co rv">
-            <div class="co-label">15+ Premium Fabrics</div>
-            <div class="co-title">Pilih Bahan</div>
-            <div class="co-sub">Selected for structure, fall, and comfort.</div>
-            <div class="fabric-grid">
-              <div class="fab"><div class="fab-swatch" style="background:#F5F1EB"></div><div class="fab-name">Wool<br>Premium</div></div>
-              <div class="fab"><div class="fab-swatch" style="background:#E8E4DC"></div><div class="fab-name">Linen<br>Blend</div></div>
-              <div class="fab"><div class="fab-swatch" style="background:#DDD8CE"></div><div class="fab-name">Cotton<br>Luxe</div></div>
-              <div class="fab"><div class="fab-swatch" style="background:#EDE8E0"></div><div class="fab-name">Bamboo<br>Soft</div></div>
-              <div class="fab"><div class="fab-swatch" style="background:#F0ECE4"></div><div class="fab-name">Saudi<br>Mix</div></div>
-            </div>
-          </div>
-
-          <!-- Colors -->
-          <div class="co rv">
-            <div class="co-label">100+ Colors & Patterns</div>
-            <div class="co-title">Pilih Warna</div>
-            <div class="co-sub">From timeless neutrals to bold tones.</div>
-            <div class="co-swatches">
-              <div class="swatch g1" title="Off White"></div>
-              <div class="swatch g2" title="Cream"></div>
-              <div class="swatch g3" title="Sand"></div>
-              <div class="swatch g7" title="Tan"></div>
-              <div class="swatch g8" title="Bronze"></div>
-              <div class="swatch g9" title="Camel"></div>
-              <div class="swatch g4" title="Bistre"></div>
-              <div class="swatch g5" title="Navy"></div>
-              <div class="swatch g6" title="Slate"></div>
-              <div class="swatch more">+91 lainnya</div>
-            </div>
-          </div>
-
-          <!-- Kerah -->
-          <div class="co rv">
-            <div class="co-label">Model Kerah</div>
-            <div class="co-title">Pilih Model Kerah</div>
-            <div class="co-swatches" style="margin-top:.5rem">
-              <div class="option-pills">
-                <span class="op active">Saudi Classic</span>
-                <span class="op">Mandarin</span>
-                <span class="op">Band Collar</span>
-                <span class="op">Open Collar</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Kantong -->
-          <div class="co rv">
-            <div class="co-label">Model Kantong</div>
-            <div class="co-title">Pilih Model Kantong</div>
-            <div class="co-swatches" style="margin-top:.5rem">
-              <div class="option-pills">
-                <span class="op active">Chest Pocket</span>
-                <span class="op">Side Pocket</span>
-                <span class="op">Hidden Pocket</span>
-                <span class="op">No Pocket</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Lengan -->
-          <div class="co rv">
-            <div class="co-label">Model Lengan</div>
-            <div class="co-title">Pilih Model &amp; Opsi Lengan</div>
-            <div class="co-swatches" style="margin-top:.5rem">
-              <div class="option-pills">
-                <span class="op active">Full Sleeve</span>
-                <span class="op">3/4 Sleeve</span>
-                <span class="op">Short Sleeve</span>
-                <span class="op">Lengan Terbuka</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Kancing -->
-          <div class="co rv">
-            <div class="co-label">Model Kancing</div>
-            <div class="co-title">Pilih Kancing</div>
-            <div class="co-swatches" style="margin-top:.5rem">
-              <div class="option-pills">
-                <span class="op active">Single Button</span>
-                <span class="op">Double Button</span>
-                <span class="op">Snap Button</span>
-                <span class="op">No Button</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pin & Placket -->
-          <div class="co rv">
-            <div class="co-label">Model Placket</div>
-            <div class="co-title">Placket &amp; Placket Bawah</div>
-            <div class="co-swatches" style="margin-top:.5rem">
-              <div class="option-pills">
-                <span class="op active">Standard</span>
-                <span class="op">French Placket</span>
-                <span class="op">Hidden Placket</span>
-                <span class="op">Open Placket</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- stat cards -->
-      <div class="stat-cards">
-        <div class="stat-card rv">
-          <div class="stat-n">15+</div>
-          <div class="stat-l">Premium Fabrics</div>
-          <div class="stat-b">Selected for structure, fall, and comfort</div>
-        </div>
-        <div class="stat-card rv d1">
-          <div class="stat-n">100+</div>
-          <div class="stat-l">Colors & Patterns</div>
-          <div class="stat-b">From timeless neutrals to bold tones</div>
-        </div>
-        <div class="stat-card rv d2">
-          <div class="stat-n">7</div>
-          <div class="stat-l">Detail Pilihan</div>
-          <div class="stat-b">Kerah, kantong, lengan, kancing, placket, pin, dan bahan</div>
-        </div>
-        <div style="margin-top:1rem" class="rv d3">
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ⑦ PRICING -->
-<section id="pricing">
-  <div class="wxs" style="text-align:center">
-
-    <div class="rv">
-      <div class="rule rc"></div>
-      <p class="pricing-kicker">Starts from</p>
-      <p class="pricing-amount"><span>IDR</span> 1.473.000</p>
-    </div>
-
-    <div class="rv d1" style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:3rem">
-      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(230,222,211,.55)">✦ Eksklusif untuk Anda</span>
-      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(230,222,211,.55)">✦ Dijahit satu per satu</span>
-      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(230,222,211,.55)">✦ Garansi fit sampai sempurna</span>
-      <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(230,222,211,.55)">✦ Worth every rupiah</span>
-    </div>
-
-    <div class="rv d2">
-      <p style="font-family:var(--serif);font-size:clamp(16px,2vw,22px);font-style:italic;color:rgba(230,222,211,.4);margin-bottom:1.5rem">
-        "Dapatkan Gamis Haji Impian Anda"
-      </p>
-      <p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(230,222,211,.3)">Booking Fitting Sekarang</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ⑧ URGENCY -->
-<section id="urgency">
-  <div class="wsm">
-    <div class="rv" style="text-align:center">
-      <span class="urg-tag">Inget!</span>
-
-      <h2 class="urg-h">
-        Gamis Anda Dijahit Khusus,<br>
-        <em>Bukan Produksi Massal.</em>
-      </h2>
-
-      <p style="font-size:15px;color:rgba(230,222,211,.5);line-height:1.9;margin-bottom:2.5rem">
-        Sisa waktu sebelum musim haji kurang dari 30 hari.
-      </p>
-
-      <div style="display:flex;flex-direction:column;gap:2rem;margin-bottom:3rem;align-items:center">
-        <div>
-          <p style="font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--br);margin-bottom:.5rem">✦ Daftar hari ini</p>
-          <p style="font-family:var(--serif);font-size:clamp(16px,2vw,20px);font-style:italic;color:var(--wc);line-height:1.6">Gamis siap saat keberangkatan.</p>
-        </div>
-        <div>
-          <p style="font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(230,222,211,.28);margin-bottom:.5rem">○ Nanti-nanti…</p>
-          <p style="font-family:var(--serif);font-size:clamp(16px,2vw,20px);font-style:italic;color:rgba(230,222,211,.32);line-height:1.6">Selesai setelah Idul Adha.</p>
-        </div>
-      </div>
-
-      <p style="font-size:12px;color:rgba(230,222,211,.3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2.5rem">
-        Sebelum Slot-nya Penuh!
-      </p>
-
-      <button class="btn btn-br" style="font-size:11px;padding:18px 48px" onclick="goCheckout()">
-        Konsultasi Gratis Sekarang!
+    <div style="text-align:center" class="rv d3">
+      <button class="btn btn-br" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
+        Konsultasi Gratis Sekarang
       </button>
     </div>
+
   </div>
 </section>
 
 
-<footer>
-  <div><div class="ft-brand">TARDA</div><div class="ft-tag">Custom Luxury Thobe — Est. 2025</div></div>
-  <div class="ft-r">Custom Luxury Thobe</div>
-</footer>
+<!-- ════════════════════════════
+     ④ TESTIMONI
+════════════════════════════ -->
+<section id="testimoni">
+  <div class="w">
+    <div class="rv" style="text-align:center;margin-bottom:3rem">
+      <span class="eyebrow">Kata Mereka</span>
+      <div class="rule"></div>
+      <h2 class="sec-h">Sudah Dipakai.<br><em>Sudah Dirasakan.</em></h2>
+    </div>
 
-</div><!-- /page1 -->
-
-
-<!-- ══════════════════════════════════════════════
-     PAGE 2 — CHECKOUT FORM
-══════════════════════════════════════════════ -->
-<div id="page2" class="page">
-
-  <!-- co nav -->
-  <div class="co-nav">
-    <span class="co-nav-logo">TARDA</span>
-    <button class="co-nav-back" onclick="goPage1()">← Kembali</button>
-  </div>
-
-  <div class="co-layout">
-
-    <!-- LEFT — summary -->
-    <div class="co-left">
-      <div>
-        <div class="co-visual">
-          <div style="text-align:center;position:relative;z-index:1">
-            <span class="co-visual-lbl">[ Visual Gamis Tarda ]</span>
-          </div>
+    <div class="testi-wrap rv d1">
+      <div class="testi-track" id="tt">
+        <!-- Slide 1 -->
+        <div class="testi-slide">
+          <div class="tc"><div class="tc-bar"></div><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-q">"Gamisnya pas banget, jahitannya rapi. Waktu di Masjid Nabawi banyak yang nanya beli di mana."</p><div class="tc-name">Pak Reza A.</div><div class="tc-loc">Surabaya, Jawa Timur</div></div>
+          <div class="tc"><div class="tc-bar"></div><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-q">"Prosesnya mudah. Fitting daringnya praktis banget. Gamis jadi tepat waktu sebelum keberangkatan."</p><div class="tc-name">H. Fadhil M.</div><div class="tc-loc">Makassar, Sulawesi Selatan</div></div>
+          <div class="tc"><div class="tc-bar"></div><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-q">"Bahannya adem, ringan. Nyaman dipakai tawaf seharian penuh tanpa gerah sama sekali."</p><div class="tc-name">Ustadz Bayu K.</div><div class="tc-loc">Medan, Sumatera Utara</div></div>
         </div>
+        <!-- Slide 2 -->
+        <div class="testi-slide">
+          <div class="tc"><div class="tc-bar"></div><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-q">"Layanan ke rumah sangat membantu. Tidak perlu ke mana-mana, fitter datang sendiri ke tempat saya."</p><div class="tc-name">Bapak Wahyu S.</div><div class="tc-loc">Bandung, Jawa Barat</div></div>
+          <div class="tc"><div class="tc-bar"></div><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-q">"Sudah order dua kali. Kualitasnya konsisten. Sangat direkomendasikan untuk haji maupun umroh."</p><div class="tc-name">Dr. Irwan P.</div><div class="tc-loc">Balikpapan, Kalimantan</div></div>
+          <div class="tc"><div class="tc-bar"></div><div class="tc-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tc-q">"Potongan Saudinya beneran beda. Proporsinya pas banget untuk postur saya yang agak berisi."</p><div class="tc-name">Pak Doni H.</div><div class="tc-loc">Palembang, Sumatera Selatan</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-dots rv d2" id="sd">
+      <div class="sd on" onclick="goSlide(0)"></div>
+      <div class="sd" onclick="goSlide(1)"></div>
+    </div>
 
-        <p style="font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--br);margin-bottom:1.25rem">Yang Anda Dapatkan:</p>
+  </div>
+</section>
 
-        <ul class="co-benefits">
-          <li class="co-benefit"><span class="ck">✔</span><span>Full kustom motif, warna, dan detail sesuai selera Anda</span></li>
-          <li class="co-benefit"><span class="ck">✔</span><span>Free Online consultation dengan CS kami</span></li>
-          <li class="co-benefit"><span class="ck">✔</span><span>Material premium terbaik untuk hasil yang berkualitas</span></li>
-          <li class="co-benefit"><span class="ck">✔</span><span>Garansi <strong style="color:var(--br)">14 hari jadi</strong></span></li>
-          <li class="co-benefit"><span class="ck">✔</span><span>Garansi fitting presisi oleh professional tailor &amp; fitter team</span></li>
-          <li class="co-benefit" style="margin-top:.5rem"><span class="warn">⚠</span><span style="color:rgba(230,222,211,.55)">Produksi terbatas — Jangan tunggu slotnya penuh!</span></li>
-        </ul>
+
+<!-- ════════════════════════════
+     ⑤ BESPOKE DETAIL
+════════════════════════════ -->
+<section id="detail">
+  <div class="w">
+    <div class="rv" style="text-align:center;margin-bottom:3rem">
+      <span class="eyebrow" style="color:var(--br)">Pilihan Anda</span>
+      <div class="rule"></div>
+      <h2 class="sec-h sec-h-lt">Jahit Gamis<br><em>Sesuai Selera Anda.</em></h2>
+    </div>
+
+    <p class="detail-intro rv d1">
+      Pilih bahan, warna, dan setiap detail — sesuai yang Anda bayangkan.
+    </p>
+
+    <div class="detail-options">
+
+      <div class="do rv">
+        <div class="do-tag">15+ Material Premium</div>
+        <div class="do-title">Pilih Bahan</div>
+        <div class="do-sub">Dipilih untuk kenyamanan, struktur, dan ketahanan.</div>
+        <div class="fab-row">
+          <div class="fab"><div class="fab-sw" style="background:#F5F1EB"></div><div class="fab-nm">Wol Premium</div></div>
+          <div class="fab"><div class="fab-sw" style="background:#E8E4DC"></div><div class="fab-nm">Linen</div></div>
+          <div class="fab"><div class="fab-sw" style="background:#DDD8CE"></div><div class="fab-nm">Katun</div></div>
+          <div class="fab"><div class="fab-sw" style="background:#EDE8E0"></div><div class="fab-nm">Bambu</div></div>
+          <div class="fab"><div class="fab-sw" style="background:#F0ECE4"></div><div class="fab-nm">Saudi Mix</div></div>
+        </div>
       </div>
 
-      <p class="co-tagline">
-        Kenakan Gamis Terbaik Untuk<br>
-        Tempat Terbaik, <em style="color:var(--br)">Baitullah.</em>
+      <div class="do rv">
+        <div class="do-tag">100+ Pilihan Warna</div>
+        <div class="do-title">Pilih Warna</div>
+        <div class="do-sub">Dari netral klasik hingga warna yang berani.</div>
+        <div class="swatches">
+          <div class="sw" style="background:#F5F1EB" title="Putih Tulang"></div>
+          <div class="sw" style="background:#E8E0D4" title="Krem"></div>
+          <div class="sw" style="background:#D4C9B8" title="Pasir"></div>
+          <div class="sw" style="background:#C9A96E" title="Emas"></div>
+          <div class="sw" style="background:#B0905D" title="Perunggu"></div>
+          <div class="sw" style="background:#D2B48C" title="Kamel"></div>
+          <div class="sw" style="background:#3B281A" title="Cokelat Tua"></div>
+          <div class="sw" style="background:#172333" title="Biru Tua"></div>
+          <div class="sw" style="background:#2C3E50" title="Biru Gelap"></div>
+          <div class="sw sw-more">+91</div>
+        </div>
+      </div>
+
+      <div class="do rv">
+        <div class="do-tag">Model Kerah</div>
+        <div class="do-title">Pilih Kerah</div>
+        <div class="pills"><span class="pill on">Saudi Klasik</span><span class="pill">Mandarin</span><span class="pill">Band</span><span class="pill">Terbuka</span></div>
+      </div>
+
+      <div class="do rv">
+        <div class="do-tag">Model Kantong</div>
+        <div class="do-title">Pilih Kantong</div>
+        <div class="pills"><span class="pill on">Dada</span><span class="pill">Samping</span><span class="pill">Tersembunyi</span><span class="pill">Tanpa Kantong</span></div>
+      </div>
+
+      <div class="do rv">
+        <div class="do-tag">Model Lengan & Opsi Terbuka</div>
+        <div class="do-title">Pilih Lengan</div>
+        <div class="pills"><span class="pill on">Panjang Penuh</span><span class="pill">Tiga Perempat</span><span class="pill">Pendek</span><span class="pill">Lengan Terbuka</span></div>
+      </div>
+
+      <div class="do rv">
+        <div class="do-tag">Model Kancing</div>
+        <div class="do-title">Pilih Kancing</div>
+        <div class="pills"><span class="pill on">Satu Kancing</span><span class="pill">Dua Kancing</span><span class="pill">Kancing Jepret</span><span class="pill">Tanpa Kancing</span></div>
+      </div>
+
+      <div class="do rv">
+        <div class="do-tag">Model Pin</div>
+        <div class="do-title">Pilih Pin</div>
+        <div class="pills"><span class="pill on">Pin Klasik</span><span class="pill">Dasi Pin</span><span class="pill">Tanpa Pin</span></div>
+      </div>
+
+      <div class="do rv">
+        <div class="do-tag">Model Plaket & Plaket Bawah</div>
+        <div class="do-title">Pilih Plaket</div>
+        <div class="pills"><span class="pill on">Standar</span><span class="pill">Prancis</span><span class="pill">Tersembunyi</span><span class="pill">Terbuka</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════
+     ⑥ PRICING
+════════════════════════════ -->
+<section id="pricing">
+  <div class="wxs" style="text-align:center">
+    <div class="rv">
+      <span class="eyebrow">Harga</span>
+      <div class="rule"></div>
+      <h2 class="sec-h" style="margin-bottom:1rem">
+        Jahit Gamis <em>Impian Anda.</em>
+      </h2>
+      <p style="font-family:var(--serif);font-size:15px;font-style:italic;color:rgba(23,35,51,.4);margin-bottom:2rem">Satu gamis yang benar-benar milik Anda sepenuhnya.</p>
+      <p class="price-from">Mulai dari</p>
+      <p class="price-amount"><span>Rp</span> 1.473.000</p>
+    </div>
+
+    <div class="price-usp rv d1">
+      <span class="pu">Eksklusif untuk Anda</span>
+      <span class="pu">Dijahit satu per satu</span>
+      <span class="pu">Garansi fit sampai sempurna</span>
+      <span class="pu">Sepadan dengan setiap rupiahnya</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════
+     ⑦ SCARCITY + CTA FINAL
+════════════════════════════ -->
+<section id="cta">
+  <div class="wxs" style="text-align:center">
+    <div class="rv">
+      <span class="eyebrow" style="color:var(--br)">Sebelum Terlambat</span>
+      <div class="rule"></div>
+      <h2 class="cta-headline">
+        Setiap Gamis Tarda Butuh<br>
+        <em>Dua Minggu Pengerjaan.</em>
+      </h2>
+      <p class="cta-body">
+        Pesan hari ini — gamis Anda otomatis masuk jadwal produksi.
+        Setiap tahap dikerjakan dengan penuh perhatian.
+        Slot dibatasi untuk menjaga standar kualitas kami.
       </p>
-    </div>
 
-    <!-- RIGHT — form -->
-    <div class="co-right">
-
-      <h2 class="form-title">Mulai Proses<br><em>Gamis Anda di Sini.</em></h2>
-      <p class="form-sub">Isi data di bawah ini. Tim kami akan segera menghubungi Anda untuk detail desain dan proses pengukuran.</p>
-
-      <form id="orderForm" onsubmit="submitForm(event)">
-
-        <!-- Nama -->
-        <div class="form-group">
-          <label class="form-label">Nama Lengkap *</label>
-          <input class="form-input" type="text" placeholder="Masukkan nama lengkap Anda" required>
+      <div class="sc-wrap rv d1">
+        <div class="sc-labels">
+          <span class="sc-lbl">Slot tersedia</span>
+          <span class="sc-lbl hi">Hampir penuh</span>
         </div>
-
-        <!-- Nomor HP -->
-        <div class="form-group">
-          <label class="form-label">Nomor WhatsApp *</label>
-          <input class="form-input" type="tel" placeholder="08xx xxxx xxxx" required>
+        <div class="sc-track">
+          <div class="sc-fill"></div>
         </div>
-
-        <!-- TB & BB -->
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Tinggi Badan *</label>
-            <input class="form-input" type="text" placeholder="cth: 170 cm" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Berat Badan *</label>
-            <input class="form-input" type="text" placeholder="cth: 70 kg" required>
-          </div>
-        </div>
-
-        <!-- Kota / Domisili -->
-        <div class="form-group">
-          <label class="form-label">Kota / Domisili *</label>
-          <input class="form-input" type="text" placeholder="cth: Jakarta Selatan" required>
-        </div>
-
-        <div class="form-divider"></div>
-
-        <!-- Metode Fitting -->
-        <div class="form-group">
-          <label class="form-label">Pilih Metode Fitting *</label>
-          <div class="fitting-options">
-            <label class="fo active" onclick="selectFitting(this)">
-              <input type="radio" name="fitting" value="online" checked>
-              <div class="fo-dot"></div>
-              <div>
-                <div class="fo-t">Online Fitting</div>
-                <div class="fo-b">Via Video Call — dari mana pun Anda berada</div>
-              </div>
-            </label>
-            <label class="fo" onclick="selectFitting(this)">
-              <input type="radio" name="fitting" value="home">
-              <div class="fo-dot"></div>
-              <div>
-                <div class="fo-t">Home Service</div>
-                <div class="fo-b">Tim fitter datang ke rumah Anda (Jabodetabek)</div>
-              </div>
-            </label>
-            <label class="fo" onclick="selectFitting(this)">
-              <input type="radio" name="fitting" value="offline">
-              <div class="fo-dot"></div>
-              <div>
-                <div class="fo-t">Offline Fitting</div>
-                <div class="fo-b">Kunjungi workshop Tarda langsung</div>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <div class="form-divider"></div>
-
-        <!-- Upload Foto Postur -->
-        <div class="form-group">
-          <label class="form-label">Upload Foto Postur <span style="color:rgba(23,35,51,.4);font-weight:300">(opsional, bantu proses sizing)</span></label>
-          <div class="upload-area" id="uploadArea">
-            <input type="file" class="upload-input" accept="image/*" onchange="handleUpload(this)">
-            <div class="upload-icon">↑</div>
-            <div class="upload-title">Upload Foto Postur</div>
-            <div class="upload-sub">Foto tampak depan &amp; samping — JPG, PNG, maks 5MB</div>
-          </div>
-          <p style="font-size:11px;color:rgba(23,35,51,.35);margin-top:8px">Tips: foto full body di depan tembok polos, posisi berdiri tegak.</p>
-        </div>
-
-        <!-- Catatan tambahan -->
-        <div class="form-group">
-          <label class="form-label">Catatan / Preferensi Desain <span style="color:rgba(23,35,51,.4);font-weight:300">(opsional)</span></label>
-          <textarea class="form-input" rows="4" placeholder="cth: Saya ingin warna putih tulang, kerah saudi classic, tanpa kantong..." style="resize:vertical;font-family:var(--sans)"></textarea>
-        </div>
-
-        <div class="form-note">
-          Setelah form ini dikirim, tim kami akan menghubungi Anda melalui WhatsApp untuk konfirmasi detail desain dan jadwal pengukuran.
-        </div>
-
-        <!-- Submit -->
-        <button type="submit" class="btn btn-br btn-lg">
-          Saya Mau Gamis Untuk Ibadah Haji!
-        </button>
-
-        <p style="font-size:11px;color:rgba(23,35,51,.35);text-align:center;margin-top:1rem;letter-spacing:.05em">
-          Konsultasi pertama sepenuhnya gratis. Tidak ada commitment.
-        </p>
-
-      </form>
-
-      <!-- success state -->
-      <div id="formSuccess" style="display:none;text-align:center;padding:48px 0">
-        <div style="font-family:var(--serif);font-size:48px;color:var(--br);margin-bottom:1rem">✦</div>
-        <h3 style="font-family:var(--serif);font-size:28px;font-weight:400;color:var(--gm);margin-bottom:.75rem">Terima Kasih!</h3>
-        <p style="font-size:14px;color:rgba(23,35,51,.55);line-height:1.8;max-width:400px;margin:0 auto 2rem">
-          Pesanan Anda telah kami terima. Tim Tarda akan segera menghubungi Anda melalui WhatsApp dalam 1×24 jam.
-        </p>
-        <button class="btn btn-ol" onclick="goPage1()">← Kembali ke Halaman Utama</button>
       </div>
 
+      <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(230,222,211,.3);margin-bottom:2.5rem" class="rv d1">
+        Pesan hari ini → Gamis otomatis terjadwal masuk produksi
+      </p>
+
+      <button class="btn btn-br rv d2" style="padding:18px 52px;font-size:12px" onclick="window.open('https://wa.me/62','_blank')">
+        Konsultasi Gratis Sekarang
+      </button>
+
+      <p class="cta-note rv d2">Tidak ada kewajiban. Konsultasi pertama sepenuhnya gratis.</p>
     </div>
   </div>
+</section>
 
-</div><!-- /page2 -->
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="ft-brand">TARDA</div>
+    <div class="ft-tag">Bespoke Gamis Premium — Est. 2025</div>
+  </div>
+  <div class="ft-r">Gamis Bespoke Premium</div>
+</footer>
 
 
 <script>
-/* ── PAGE NAVIGATION ── */
-function goPage1(){
-  document.getElementById('page1').classList.add('active');
-  document.getElementById('page2').classList.remove('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-  initReveal();
-}
-function goCheckout(){
-  document.getElementById('page1').classList.remove('active');
-  document.getElementById('page2').classList.add('active');
-  window.scrollTo({top:0,behavior:'instant'});
-}
+// Nav scroll
+window.addEventListener('scroll',()=>document.getElementById('nb').classList.toggle('sc',scrollY>60));
 
-/* ── NAVBAR SCROLL ── */
-const nb = document.getElementById('nb');
-window.addEventListener('scroll', () => nb.classList.toggle('scrolled', scrollY > 60));
+// Reveal
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)}})
+},{threshold:.1,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+setTimeout(()=>document.querySelectorAll('#hero .rv').forEach(el=>el.classList.add('in')),160);
 
-/* ── REVEAL ON SCROLL ── */
-function initReveal(){
-  const items = document.querySelectorAll('.rv:not(.in)');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, {threshold:0.1, rootMargin:'0px 0px -36px 0px'});
-  items.forEach(el => obs.observe(el));
+// Testimoni slider
+let cur=0;
+const track=document.getElementById('tt');
+const slides=Array.from(track.children);
+slides.forEach((s,i)=>{
+  if(i>0){s.style.position='absolute';s.style.top='0';s.style.left='0';s.style.width='100%';s.style.transform=`translateX(${i*100}%)`}
+});
+track.style.position='relative';
+function goSlide(i){
+  cur=i;
+  slides.forEach((s,idx)=>{
+    s.style.transform=`translateX(${(idx-i)*100}%)`;
+    if(idx>0){s.style.position='absolute';s.style.top='0';s.style.left='0';s.style.width='100%'}else{s.style.position='relative'}
+  });
+  document.querySelectorAll('.sd').forEach((d,idx)=>d.classList.toggle('on',idx===i));
 }
-initReveal();
-setTimeout(() => {
-  document.querySelectorAll('#hero .rv').forEach(el => el.classList.add('in'));
-}, 160);
+setInterval(()=>goSlide((cur+1)%2),5000);
 
-/* ── OPTION PILLS INTERACTIVE ── */
-document.querySelectorAll('.option-pills').forEach(group => {
-  group.querySelectorAll('.op').forEach(pill => {
-    pill.addEventListener('click', () => {
-      group.querySelectorAll('.op').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-    });
+// Pills
+document.querySelectorAll('.pills').forEach(g=>{
+  g.querySelectorAll('.pill').forEach(p=>{
+    p.addEventListener('click',()=>{g.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));p.classList.add('on')});
   });
 });
-
-/* ── FITTING OPTION SELECT ── */
-function selectFitting(el){
-  document.querySelectorAll('.fo').forEach(f => f.classList.remove('active'));
-  el.classList.add('active');
-}
-
-/* ── FILE UPLOAD ── */
-function handleUpload(input){
-  const area = document.getElementById('uploadArea');
-  if(input.files && input.files[0]){
-    const name = input.files[0].name;
-    area.querySelector('.upload-title').textContent = name;
-    area.querySelector('.upload-sub').textContent = 'Klik untuk ganti foto';
-    area.style.borderColor = 'var(--br)';
-    area.style.background = 'rgba(176,144,93,0.05)';
-  }
-}
-
-/* ── FORM SUBMIT ── */
-function submitForm(e){
-  e.preventDefault();
-  document.getElementById('orderForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
 </script>
 </body>
 </html>
