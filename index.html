@@ -1,0 +1,370 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#EEEADF;
+    --paper-2:#F5F2E9;
+    --ink:#222B25;
+    --ink-soft:#4C564E;
+    --pine:#2E3A31;
+    --brass:#A47B33;
+    --brass-soft:#C6A05a;
+    --line:#D7D0BF;
+    --line-2:#E3DCCC;
+    --done:#5C7355;
+    --shadow:0 1px 0 rgba(34,43,37,.04), 0 8px 24px -16px rgba(34,43,37,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    font-size:15px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:660px;margin:0 auto;padding:0 18px 64px}
+
+  /* Header */
+  header{padding:30px 0 14px;}
+  .tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass);font-weight:600;
+  }
+  .tag::before{content:"";width:22px;height:1px;background:var(--brass);display:inline-block}
+  h1{
+    font-family:"Fraunces",Georgia,serif;
+    font-weight:600;font-size:31px;line-height:1.05;
+    margin:.35em 0 .1em;letter-spacing:-.01em;
+  }
+  h1 em{font-style:italic;color:var(--pine)}
+  .sub{color:var(--ink-soft);font-size:14px;margin:0;max-width:46ch}
+
+  /* Sticky progress */
+  .progress-bar{
+    position:sticky;top:0;z-index:20;
+    background:var(--paper);
+    padding:12px 0 12px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:6px;
+  }
+  .progress-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .progress-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .progress-count{font-family:"Fraunces",serif;font-size:15px;color:var(--pine);font-weight:600}
+  /* stitch-line track */
+  .track{height:9px;border:1px solid var(--line);border-radius:20px;background:var(--paper-2);overflow:hidden;position:relative}
+  .fill{
+    height:100%;width:0;
+    background:repeating-linear-gradient(90deg,var(--brass) 0 7px,transparent 7px 12px),var(--brass-soft);
+    background-blend-mode:normal;
+    transition:width .4s cubic-bezier(.2,.7,.2,1);
+  }
+
+  /* Sections */
+  .section{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    margin-top:14px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .sec-head{
+    width:100%;border:0;background:transparent;cursor:pointer;
+    display:flex;align-items:center;gap:13px;
+    padding:15px 16px;text-align:left;font-family:inherit;color:inherit;
+  }
+  .sec-no{
+    flex:none;width:30px;height:30px;border-radius:8px;
+    background:var(--pine);color:var(--paper-2);
+    font-family:"Fraunces",serif;font-size:14px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .sec-titles{flex:1;min-width:0}
+  .sec-title{font-weight:600;font-size:15.5px;line-height:1.2}
+  .sec-when{font-size:12px;color:var(--ink-soft);margin-top:2px}
+  .sec-meta{flex:none;display:flex;align-items:center;gap:10px}
+  .sec-count{font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
+  .chev{flex:none;transition:transform .25s;color:var(--brass)}
+  .section.collapsed .chev{transform:rotate(-90deg)}
+  .sec-body{padding:2px 16px 8px}
+  .section.collapsed .sec-body{display:none}
+
+  /* subgroup */
+  .group-label{
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--brass);font-weight:600;
+    margin:14px 0 4px;padding-top:10px;border-top:1px dashed var(--line);
+  }
+  .group-label:first-child{border-top:0;padding-top:4px;margin-top:4px}
+
+  /* items */
+  .item{display:flex;gap:12px;align-items:flex-start;padding:9px 2px;cursor:pointer;user-select:none}
+  .item + .item{border-top:1px solid var(--line-2)}
+  .box{
+    flex:none;width:21px;height:21px;margin-top:1px;border-radius:6px;
+    border:1.5px solid var(--brass);background:transparent;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .15s,border-color .15s;
+  }
+  .box svg{width:13px;height:13px;opacity:0;transform:scale(.6);transition:opacity .15s,transform .15s}
+  .item.done .box{background:var(--done);border-color:var(--done)}
+  .item.done .box svg{opacity:1;transform:scale(1)}
+  .item-text{font-size:14.5px;line-height:1.45;transition:color .15s}
+  .item.done .item-text{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line)}
+  .hint{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:1px;text-decoration:none!important}
+
+  /* footer controls */
+  .controls{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+  .btn{
+    font-family:inherit;font-size:13.5px;font-weight:600;
+    padding:10px 16px;border-radius:10px;cursor:pointer;
+    border:1px solid var(--line);background:var(--paper-2);color:var(--ink);
+  }
+  .btn.primary{background:var(--pine);color:var(--paper-2);border-color:var(--pine)}
+  .btn:active{transform:translateY(1px)}
+  .foot-note{margin-top:14px;font-size:12px;color:var(--ink-soft)}
+
+  @media print{
+    .progress-bar,.controls,.chev{display:none}
+    .section,.section.collapsed .sec-body{box-shadow:none}
+    .section.collapsed .sec-body{display:block!important}
+    body{background:#fff}
+    .section{break-inside:avoid}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="tag">Tarda · Produksi</span>
+    <h1>Checklist Shooting <em>Gamis Pria</em> di Villa</h1>
+    <p class="sub">Dari persiapan H-3 sampai wrap. Centang langsung dari HP di lokasi — progres tersimpan otomatis.</p>
+  </header>
+
+  <div class="progress-bar">
+    <div class="progress-top">
+      <span class="progress-label">Progres total</span>
+      <span class="progress-count" id="pct">0 / 0</span>
+    </div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </div>
+
+  <div id="app"></div>
+
+  <div class="controls">
+    <button class="btn primary" onclick="window.print()">Cetak / Simpan PDF</button>
+    <button class="btn" id="resetBtn">Reset semua centang</button>
+  </div>
+  <p class="foot-note">Tip: tahan satu orang khusus jaga wardrobe — tugasnya cuma jaga gamis tetap rapi & steam ulang sebelum tiap take.</p>
+</div>
+
+<script>
+const DATA = [
+  {
+    id:"prep", title:"Persiapan", when:"H-3 sampai H-1",
+    groups:[
+      { items:[
+        ["Konfirmasi izin villa untuk shooting komersial","banyak villa beda aturan untuk komersial vs personal"],
+        ["Cek biaya tambahan / fee produksi villa"],
+        ["Pastikan jam check-in/out & opsi extend kalau molor"],
+        ["Tanya aturan villa: jumlah orang, area yang boleh dipakai, kebisingan"],
+        ["Survey lokasi / lihat foto spot & arah cahaya (pagi–siang–sore)"],
+        ["Cek daya listrik villa + jumlah & lokasi stop kontak","steamer + setrika + lighting butuh daya besar"],
+        ["Cek sinyal / WiFi villa"],
+        ["Fix tanggal & konfirmasi jadwal semua crew"],
+        ["Konfirmasi jadwal model"],
+        ["Booking grooming / penata rambut & jenggot (kalau perlu)"],
+        ["Siapkan moodboard / referensi visual"],
+        ["Susun shot list / storyboard"],
+        ["Susun rundown jam-jaman"],
+        ["List koleksi gamis + urutan shoot (kelompok per warna/model)"],
+        ["Siapkan konsep properti & wardrobe pendukung","peci, sorban, sepatu, jam, dll"],
+        ["Cek prakiraan cuaca + siapkan plan B kalau hujan"],
+        ["Atur transportasi alat & tim ke villa","cek akses jalan, kadang sempit/menanjak"],
+        ["Brief model soal pose & ekspektasi"],
+      ]}
+    ]
+  },
+  {
+    id:"pack", title:"Packing alat", when:"sebelum berangkat",
+    groups:[
+      { label:"Kamera & video", items:[
+        ["Kamera + lensa"],
+        ["Baterai cadangan (banyak) + charger"],
+        ["Memory card cadangan"],
+        ["Tripod"],
+        ["Gimbal / stabilizer (kalau video)"],
+        ["Mic / recorder / headphone (kalau video)"],
+      ]},
+      { label:"Lighting", items:[
+        ["Lampu + light stand"],
+        ["Reflektor"],
+        ["Diffuser / softbox"],
+        ["Color checker / gray card","buat akurasi warna — krusial untuk custom"],
+      ]},
+      { label:"Listrik", items:[
+        ["Terminal / extension cord panjang (5–10 m)"],
+        ["Stop kontak cabang"],
+        ["Power bank"],
+        ["Kabel & adaptor"],
+      ]},
+      { label:"Handling gamis", items:[
+        ["Standing steamer"],
+        ["Steamer genggam / portable (cadangan)"],
+        ["Setrika + alas setrika portable / ironing mat"],
+        ["Air mineral / aquades buat steamer","jangan air keran — bisa ninggalin noda di kain"],
+        ["Hanger kokoh bahu lebar (banyak)"],
+        ["Rak gantung portable (rolling rack)"],
+        ["Pressing cloth (kain katun putih)","alas saat setrika bordir/kancing biar nggak mengkilap/gosong"],
+        ["Lint roller"],
+        ["Gunting benang kecil"],
+        ["Spray bottle air"],
+        ["Sarung tangan tahan panas"],
+        ["Cover / plastik gamis buat transport"],
+      ]},
+      { label:"Wardrobe & styling", items:[
+        ["Semua koleksi gamis (cek vs list)"],
+        ["Inner / kaos dalam yang pas"],
+        ["Peci/kopiah, sorban/imamah"],
+        ["Sepatu/sandal senada","full body shot keliatan sampai kaki"],
+        ["Aksesori: jam, parfum (properti), tasbih, sajadah"],
+        ["Properti set sesuai konsep"],
+      ]},
+      { label:"Dokumen & lain-lain", items:[
+        ["Shot list (print / di HP)"],
+        ["Rundown"],
+        ["P3K dasar"],
+        ["Konsumsi & air minum tim + model"],
+        ["Uang cash buat keperluan dadakan"],
+      ]},
+    ]
+  },
+  {
+    id:"setup", title:"Setup di lokasi", when:"Hari H — sebelum mulai",
+    groups:[
+      { items:[
+        ["Check-in & cek kondisi semua spot/ruangan"],
+        ["Tentukan spot utama sesuai cahaya saat itu"],
+        ["Gantung semua gamis di rak sesuai urutan shot list"],
+        ["Steam / setrika gamis koleksi pertama"],
+        ["Set lighting & tes cahaya di spot pertama"],
+        ["Set white balance + tes pakai color checker / gray card"],
+        ["Test shot: pastikan warna gamis akurat di hasil","custom = pelanggan order dari warna yang dilihat"],
+        ["Siapkan area khusus wardrobe & grooming"],
+        ["Grooming model: rambut & jenggot/kumis rapi sesuai image"],
+        ["Tunjuk 1 orang khusus jaga wardrobe"],
+        ["Cek semua baterai full & memory card kosong"],
+      ]}
+    ]
+  },
+  {
+    id:"shoot", title:"Saat shooting", when:"Hari H",
+    groups:[
+      { items:[
+        ["Ikuti shot list per look / warna"],
+        ["Steam ulang gamis sebelum tiap take"],
+        ["Cek lint / benang nyangkut sebelum model masuk frame"],
+        ["Pastikan gamis jatuh rapi: bahu, lengan, plakat kancing"],
+        ["Ambil full body (siluet & panjang gamis)"],
+        ["Ambil detail shot: kerah, kancing/bordir, jahitan, manset, bahu, tekstur kain","ini jualan utama produk custom"],
+        ["Variasi pose: formal berwibawa, casual, candid lifestyle"],
+        ["Cek hasil tiap beberapa take (fokus, cahaya, warna)"],
+        ["White balance ulang kalau pindah spot / ganti jam","jaga konsistensi warna"],
+        ["Backup foto berkala kalau memungkinkan"],
+        ["Centang tiap look yang sudah selesai di shot list"],
+        ["Jaga gamis tetap bersih saat pindah area"],
+      ]}
+    ]
+  },
+  {
+    id:"wrap", title:"Wrap / selesai", when:"setelah shooting",
+    groups:[
+      { items:[
+        ["Cek ulang shot list: semua look & detail sudah keambil?"],
+        ["Backup semua file ke minimal 2 tempat"],
+        ["Gantung & kemas gamis rapi (cover/plastik)"],
+        ["Cek nggak ada alat ketinggalan (pakai checklist packing dibalik)"],
+        ["Rapikan & kembalikan kondisi villa sesuai aturan"],
+        ["Foto kondisi villa pas selesai","jaga-jaga soal deposit"],
+        ["Terima kasih ke pihak villa & crew"],
+      ]}
+    ]
+  },
+];
+
+const KEY="tarda-villa-checklist-v1";
+const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="#F5F2E9" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>';
+let state={};
+
+async function loadState(){
+  try{ const r=await window.storage.get(KEY); if(r&&r.value) state=JSON.parse(r.value)||{}; }
+  catch(e){ state={}; }
+}
+async function saveState(){
+  try{ await window.storage.set(KEY,JSON.stringify(state)); }catch(e){}
+}
+
+function render(){
+  const app=document.getElementById("app");
+  app.innerHTML="";
+  DATA.forEach((sec,si)=>{
+    const card=document.createElement("section");
+    card.className="section"+(si>0?" collapsed":"");
+    const head=document.createElement("button");
+    head.className="sec-head";
+    head.innerHTML=
+      '<span class="sec-no">'+(si+1)+'</span>'+
+      '<span class="sec-titles"><span class="sec-title">'+sec.title+'</span><span class="sec-when">'+sec.when+'</span></span>'+
+      '<span class="sec-meta"><span class="sec-count" id="cnt-'+sec.id+'"></span>'+
+      '<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>';
+    head.onclick=()=>card.classList.toggle("collapsed");
+    card.appendChild(head);
+
+    const body=document.createElement("div");
+    body.className="sec-body";
+    sec.groups.forEach((g,gi)=>{
+      if(g.label){ const gl=document.createElement("div"); gl.className="group-label"; gl.textContent=g.label; body.appendChild(gl); }
+      g.items.forEach((it,ii)=>{
+        const key=sec.id+"-"+gi+"-"+ii;
+        const row=document.createElement("div");
+        row.className="item"+(state[key]?" done":"");
+        row.innerHTML='<span class="box">'+CHECK+'</span><span class="item-text">'+it[0]+
+          (it[1]?'<span class="hint">'+it[1]+'</span>':'')+'</span>';
+        row.onclick=()=>{ state[key]=!state[key]; row.classList.toggle("done",state[key]); saveState(); updateCounts(); };
+        body.appendChild(row);
+      });
+    });
+    card.appendChild(body);
+    app.appendChild(card);
+  });
+  updateCounts();
+}
+
+function updateCounts(){
+  let total=0,done=0;
+  DATA.forEach(sec=>{
+    let st=0,sd=0;
+    sec.groups.forEach((g,gi)=>g.items.forEach((it,ii)=>{
+      const key=sec.id+"-"+gi+"-"+ii; st++; total++;
+      if(state[key]){ sd++; done++; }
+    }));
+    const el=document.getElementById("cnt-"+sec.id);
+    if(el) el.textContent=sd+"/"+st;
+  });
+  document.getElementById("pct").textContent=done+" / "+total;
+  document.getElementById("fill").style.width=(total?(done/total*100):0)+"%";
+}
+
+document.getElementById("resetBtn").onclick=async()=>{
+  state={}; await saveState(); render();
+};
+
+(async()=>{ await loadState(); render(); })();
+</script>
